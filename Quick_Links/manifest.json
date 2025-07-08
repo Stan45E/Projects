@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Quick Links Launcher",
+  "version": "1.3",
+  "description": "A personal, quick-launch dashboard for your favorite websites.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/link.png",
+      "48": "images/link.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "icons": {
+    "16": "images/link.png",
+    "48": "images/link.png",
+    "128": "images/icon128.png"
+  }
+}

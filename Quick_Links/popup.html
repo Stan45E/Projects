@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Quick Links</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Quick Links</h1>
+      <button id="themeToggleBtn" class="icon-btn theme-toggle" title="Toggle Theme"></button>
+      <div class="search-container">
+        <input type="search" id="searchInput" placeholder="Search links...">
+      </div>
+    </header>
+
+    <div id="frequentSitesContainer">
+      <!-- Frequently used sites will be dynamically inserted here -->
+    </div>
+
+    <div id="allSitesContainer">
+      <!-- All grouped links will be dynamically inserted here -->
+    </div>
+
+    <button id="addCurrentTabBtn" class="secondary-btn">Add Current Tab</button>
+
+    <form id="addSiteForm" class="add-form">
+      <input type="text" id="siteNameInput" placeholder="Link Name" required>
+      <input type="url" id="siteUrlInput" placeholder="https://example.com" required>
+      <select id="groupSelect" required></select>
+      <button type="submit">Add New Link</button>
+    </form>
+
+    <form id="addGroupForm" class="add-form">
+      <input type="text" id="groupNameInput" placeholder="New Group Name" required>
+      <button type="submit">Create Group</button>
+    </form>
+  </div>
+
+  <footer class="settings-footer">
+    <button id="exportBtn">Export Data</button>
+    <button id="importBtn">Import Data</button>
+    <input type="file" id="importFile" accept=".json" style="display:none;">
+  </footer>
+
+  <!-- --- NEW: Toast Notification Element --- -->
+  <div id="toastNotification"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

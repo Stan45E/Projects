@@ -1,0 +1,221 @@
+/* --- Root Variables, Light Theme, General Styling ... (no changes here) ... */
+:root {
+  --bg-color: #1e1e1e;
+  --surface-color: #2d2d2d;
+  --primary-text-color: #e0e0e0;
+  --secondary-text-color: #a0a0a0;
+  --accent-color: #4a90e2;
+  --hover-color: #3a3a3a;
+  --border-color: #444;
+  --danger-color: #e94f4f;
+  --success-color: #4caf50;
+}
+
+body.light-theme {
+  --bg-color: #fdfdfd;
+  --surface-color: #f0f0f0;
+  --primary-text-color: #1e1e1e;
+  --secondary-text-color: #555;
+  --accent-color: #007aff;
+  --hover-color: #e5e5e5;
+  --border-color: #d1d1d1;
+  --danger-color: #e94f4f;
+  --success-color: #2e7d32;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  width: 350px;
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--primary-text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  padding: 15px;
+}
+
+header {
+  position: relative;
+  margin-bottom: 10px;
+}
+.theme-toggle {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--secondary-text-color);
+  margin: 20px 0 8px 0;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 5px;
+}
+
+/* --- Collapsible Group Styling --- */
+.group-container {
+    margin-top: 15px;
+}
+
+.group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--hover-color);
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none; /* Prevents text selection on double click */
+}
+
+.group-toggle-icon {
+    font-size: 12px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.group-container.collapsed .group-toggle-icon {
+    transform: rotate(-90deg);
+}
+
+.group-container .site-list {
+    list-style: none;
+    padding: 6px 0 0 0;
+    margin: 0;
+    overflow: hidden;
+    max-height: 1000px; /* A large value for the open state */
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+.group-container.collapsed .site-list {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* --- Search Bar --- */
+.search-container input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--primary-text-color);
+  font-size: 14px;
+}
+.search-container input::placeholder {
+  color: var(--secondary-text-color);
+}
+
+/* --- Link List Styling --- */
+#frequentSitesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.site-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  background-color: var(--surface-color);
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+.site-item.dragging { opacity: 0.5; }
+.site-item .drag-handle { cursor: grab; color: var(--secondary-text-color); margin-right: 8px; font-size: 18px; line-height: 1; }
+.site-item:hover { background-color: var(--hover-color); }
+.favicon { width: 20px; height: 20px; margin-right: 12px; flex-shrink: 0; }
+.site-info { flex-grow: 1; cursor: pointer; overflow: hidden; }
+.site-name { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+.site-item-buttons { display: flex; align-items: center; opacity: 0; transition: opacity 0.2s ease; }
+.site-item:hover .site-item-buttons { opacity: 1; }
+
+.icon-btn { background: none; border: none; cursor: pointer; padding: 4px; margin-left: 4px; border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+.icon-btn svg { width: 16px; height: 16px; fill: var(--secondary-text-color); transition: fill 0.2s ease; }
+.icon-btn:hover svg { fill: var(--primary-text-color); }
+.delete-btn:hover svg { fill: var(--danger-color); }
+
+/* --- Edit Form (In-place) --- */
+.edit-form { display: none; flex-grow: 1; }
+.edit-form input, .edit-form select { width: 98%; background-color: var(--bg-color); border: 1px solid var(--accent-color); color: var(--primary-text-color); padding: 4px; border-radius: 3px; margin-bottom: 4px; }
+.edit-form-buttons button { font-size: 12px; padding: 3px 8px; margin-right: 5px; }
+
+
+/* --- Add Form Styling --- */
+.add-form { margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color); }
+.add-form input, .add-form select { width: 100%; box-sizing: border-box; padding: 8px 10px; margin-bottom: 8px; background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 4px; font-size: 13px; color: var(--primary-text-color); }
+.add-form button { width: 100%; padding: 10px; font-weight: bold; background-color: var(--accent-color); color: white; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.2s ease; }
+.add-form button:hover { filter: brightness(1.1); }
+
+/* --- Secondary button for "Add Current Tab" --- */
+.secondary-btn { width: 100%; padding: 10px; font-weight: bold; background-color: var(--surface-color); color: var(--primary-text-color); border: 1px solid var(--border-color); border-radius: 4px; cursor: pointer; transition: background-color 0.2s ease; margin-top: 15px; }
+.secondary-btn:hover { background-color: var(--hover-color); }
+
+/* --- Settings Footer for Backup/Restore --- */
+.settings-footer {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: 10px;
+}
+.settings-footer button {
+  flex-grow: 1;
+  padding: 8px;
+  font-weight: 500;
+  background-color: var(--surface-color);
+  color: var(--primary-text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.settings-footer button:hover {
+  background-color: var(--hover-color);
+}
+/* --- NEW: Toast Notification Styling --- */
+#toastNotification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s ease-in-out;
+  transform: translateX(-50%) translateY(20px);
+}
+
+#toastNotification.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+#toastNotification.success {
+  background-color: var(--success-color);
+}
+
+#toastNotification.error {
+  background-color: var(--danger-color);
+}

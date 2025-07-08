@@ -1,0 +1,16 @@
+
+{
+  "manifest_version": 3,
+  "name": "Network Diagnostics Hub",
+  "description": "A comprehensive browser extension to run speed tests, check website reachability, and manage browser cache and cookies.",
+  "version": "1.0",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "browsingData"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

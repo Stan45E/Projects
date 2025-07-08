@@ -1,0 +1,26 @@
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+.dark-mode .list-group-item {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+  border: 1px solid #444 !important;
+}
+
+.dark-mode .btn-info {
+  background-color: #00bcd4;
+  color: black;
+}
+.dark-mode .btn-secondary {
+  background-color: #ccc;
+  color: black;
+}
+.dark-mode .modal-content {
+  background-color: #2a2a2a;
+  color: #fff;
+}
+.dark-mode .btn-close {
+  filter: invert(1);
+}
